@@ -9,7 +9,7 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("Rebuild");
-    final homescreenProvider = Provider.of<HomescreenProvider>(context,listen: false);
+    final homescreenProvider = Provider.of<CounterscreenProvider>(context,listen: false);
     return Scaffold(
       body: Center(
         child: Column(
@@ -17,7 +17,7 @@ class Homescreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Consumer<HomescreenProvider>(builder: (context, value, child) {
+            Consumer<CounterscreenProvider>(builder: (context, value, child) {
               return Text("${value.count}");
             },),
             ElevatedButton(onPressed: () {

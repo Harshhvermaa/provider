@@ -1,5 +1,7 @@
+import 'package:counter_provider/provider/cartScreenProvider.dart';
 import 'package:counter_provider/provider/counterScreenProvider.dart';
 import 'package:counter_provider/provider/sliderProvider.dart';
+import 'package:counter_provider/screens/cartScreen.dart';
 import 'package:counter_provider/screens/counterScreen.dart';
 import 'package:counter_provider/screens/sliderScreen.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +16,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => SliderScreenProvider(),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => CounterscreenProvider(),),
+          ChangeNotifierProvider(create: (context) => SliderScreenProvider(),),
+          ChangeNotifierProvider(create: (context) => CartScreenProvider(),)
+        ],
       child: MaterialApp(
-        home: SliderScreen(),
+        home: CartScreen(),
       ),
     );
   }
